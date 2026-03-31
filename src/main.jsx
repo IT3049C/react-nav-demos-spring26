@@ -12,32 +12,27 @@ import { LoginPage } from "./pages/LoginPage";
 import { RequireAuth } from "./auth/RequireAuth";
 import { AuthProvider } from "./auth/AuthProvider";
 
-const router = createBrowserRouter(
-  [
-    {
-      element: <AppLayout />,
-      children: [
-        { path: `/`, element: <Home /> },
-        { path: `/login`, element: <LoginPage /> },
-        { path: `/about`, element: <About /> },
-        { path: `/events`, element: <Events /> },
-        { path: `/events/:eventId`, element: <EventDetails /> },
-        {
-          path: `/settings`,
-          element: (
-            <RequireAuth>
-              <Settings />
-            </RequireAuth>
-          ),
-        },
-        { path: `*`, element: <NotFound /> },
-      ],
-    },
-  ],
+const router = createBrowserRouter([
   {
-    basename: import.meta.env.BASE_URL,
-  }
-);
+    element: <AppLayout />,
+    children: [
+      { path: `/`, element: <Home /> },
+      { path: `/login`, element: <LoginPage /> },
+      { path: `/about`, element: <About /> },
+      { path: `/events`, element: <Events /> },
+      { path: `/events/:eventId`, element: <EventDetails /> },
+      {
+        path: `/settings`,
+        element: (
+          <RequireAuth>
+            <Settings />
+          </RequireAuth>
+        ),
+      },
+      { path: `*`, element: <NotFound /> },
+    ],
+  },
+]);
 
 createRoot(document.getElementById("root")).render(
   <AuthProvider>
