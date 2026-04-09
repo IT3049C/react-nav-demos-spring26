@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 
 test.beforeEach(async ({ page }) => {
-  await page.goto('http://localhost:5173/');
+  await page.goto('/');
 });
 
 test('Settings page redirects unauthenticated users to login', async ({ page }) => {
@@ -11,12 +11,12 @@ test('Settings page redirects unauthenticated users to login', async ({ page }) 
 });
 
 test('Login page shows sign in button', async ({ page }) => {
-  await page.goto('http://localhost:5173/login');
+  await page.goto('/login');
   await expect(page.getByRole('button', { name: /Sign In/i })).toBeVisible();
 });
 
 test('Login page shows descriptive text', async ({ page }) => {
-  await page.goto('http://localhost:5173/login');
+  await page.goto('/login');
   await expect(page.getByText(/sign in to access your settings/i)).toBeVisible();
 });
 

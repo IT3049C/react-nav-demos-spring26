@@ -2,7 +2,7 @@ import { test, expect } from '@playwright/test';
 
 test.beforeEach(async ({ page }) => {
   // Login before each test since Settings requires auth
-  await page.goto('http://localhost:5173/');
+  await page.goto('/');
   await page.getByRole('navigation').getByRole('link', { name: 'Settings' }).click();
   await page.getByRole('button', { name: /Sign In/i }).click();
 });

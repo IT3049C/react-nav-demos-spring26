@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 
 test.beforeEach(async ({ page }) => {
-  await page.goto('http://localhost:5173/');
+  await page.goto('/');
 });
 
 test('Full flow: browse events, view details, go back', async ({ page }) => {

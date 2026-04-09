@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 
 test.beforeEach(async ({ page }) => {
-  await page.goto('http://localhost:5173/about');
+  await page.goto('/about');
 });
 
 test('About page shows subtitle text', async ({ page }) => {
